@@ -16,7 +16,7 @@ import java.util.List;
  */
 @Data
 @ToString
-public class MyDomainListBuffer extends ArrayWritable {
+public class MyDomainListBuffer implements Writable {
     private List<MyDomain> list = new ArrayList<MyDomain>();
 
     @Override
