@@ -50,29 +50,3 @@ public class UdafDemoContains extends Aggregator {
         result.addBuffer(buffer);
     }
 }
-
-@Data
-@ToString
-class MyDomainListBuffer implements Writable {
-    private List<MyDomain> list = new ArrayList<MyDomain>();
-
-    @Override
-    public void write(DataOutput out) throws IOException {
-        for (MyDomain acl : list) {
-            acl.write(out);
-        }
-    }
-
-    @Override
-    public void readFields(DataInput in) throws IOException {
-    }
-
-    public void add(MyDomain myDomain) {
-        list.add(myDomain);
-    }
-
-    public void addBuffer(MyDomainListBuffer myDomainListBuffer) {
-        list.addAll(myDomainListBuffer.getList());
-    }
-
-}

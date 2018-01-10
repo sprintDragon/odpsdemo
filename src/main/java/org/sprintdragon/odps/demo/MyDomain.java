@@ -18,6 +18,20 @@ public class MyDomain implements Writable {
     private Text groupId;
     private Text ip;
 
+    public MyDomain()
+    {
+        this.type = new IntWritable();
+        this.groupId = new Text();
+        this.ip = new Text();
+    }
+
+    public MyDomain(int type, String groupId, String ip)
+    {
+        this.type = new IntWritable(type);
+        this.groupId = new Text(groupId);
+        this.ip = new Text(ip);
+    }
+
     @Override
     public void write(DataOutput out) throws IOException {
         type.write(out);
